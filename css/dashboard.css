@@ -1,0 +1,121 @@
+/* Modern Dashboard Redesign */
+:root {
+  --primary: #7c3aed;
+  --accent: #a78bfa;
+  --surface: #181828;
+  --bg: #10101a;
+  --card-radius: 16px;
+  --card-padding: 20px;
+  --header-height: 64px;
+  --transition: 0.2s cubic-bezier(.4,0,.2,1);
+}
+
+body.dashboard {
+  background: var(--bg);
+  color: #fff;
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
+}
+
+.dashboard-header {
+  height: var(--header-height);
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.dashboard-title {
+  font-size: 1.7em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.dashboard-nav {
+  display: flex;
+  gap: 18px;
+}
+.dashboard-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 8px;
+  background: rgba(24,24,40,0.7);
+  transition: background var(--transition);
+}
+.dashboard-nav a.active, .dashboard-nav a:hover {
+  background: var(--primary);
+}
+
+.dashboard-main {
+  padding: 32px 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+.dashboard-card {
+  background: var(--surface);
+  border-radius: var(--card-radius);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  padding: var(--card-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow var(--transition);
+}
+.dashboard-card:hover {
+  box-shadow: 0 4px 24px rgba(124,58,237,0.18);
+}
+.card-title {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.card-value {
+  font-size: 2.2em;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.card-desc {
+  font-size: 1em;
+  color: #b3b3d1;
+}
+
+/* Responsive styles */
+@media (max-width: 700px) {
+  .dashboard-header {
+    flex-direction: column;
+    height: auto;
+    padding: 16px 8px;
+    gap: 10px;
+    text-align: center;
+  }
+  .dashboard-title {
+    font-size: 1.3em;
+  }
+  .dashboard-nav {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+  .dashboard-nav a {
+    width: 90%;
+    font-size: 1.1em;
+    padding: 12px 0;
+  }
+  .dashboard-main {
+    padding: 16px 4px;
+  }
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
